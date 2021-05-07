@@ -1,0 +1,44 @@
+{
+  "kind": "collectionType",
+  "collectionName": "variants",
+  "info": {
+    "name": "Variant",
+    "description": ""
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true,
+    "draftAndPublish": true
+  },
+  "pluginOptions": {},
+  "attributes": {
+    "uid": {
+      "type": "integer",
+      "required": true,
+      "unique": true
+    },
+    "Name": {
+      "type": "string",
+      "required": true,
+      "unique": true
+    },
+    "Description": {
+      "type": "string",
+      "required": true
+    },
+    "Size": {
+      "type": "string"
+    },
+    "SKU": {
+      "type": "uid",
+      "required": true
+    },
+    "Price": {
+      "type": "decimal"
+    },
+    "product": {
+      "via": "variants",
+      "model": "product"
+    }
+  }
+}
