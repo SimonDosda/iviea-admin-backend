@@ -17,23 +17,23 @@
       "required": true,
       "unique": true
     },
-    "Name": {
+    "name": {
       "type": "string",
       "required": true,
       "unique": true
     },
-    "Description": {
+    "description": {
       "type": "string",
       "required": true
     },
-    "Size": {
+    "size": {
       "type": "string"
     },
-    "SKU": {
+    "sku": {
       "type": "uid",
       "required": true
     },
-    "Price": {
+    "price": {
       "type": "decimal"
     },
     "product": {

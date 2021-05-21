@@ -9,11 +9,13 @@ module.exports = {
         Authorization: `Basic ${process.env.PRINTFUL_API_KEY}`,
       },
     });
+    console.log(res);
     const { result } = await res.json();
+    console.log(result);
     ctx.send(result);
   },
   async product(ctx) {
-    const {productId} = ctx.params; 
+    const { productId } = ctx.params;
     const res = await fetch(
       `https://api.printful.com/sync/products/${productId}`,
       {
@@ -28,7 +30,6 @@ module.exports = {
     ctx.send(result);
   },
 };
-
 
 async function getProductWithVariants(productId) {
   const res = await fetch(
@@ -109,9 +110,9 @@ function parseVariant(variant) {
     sku: variant.sku,
     price: parseFloat(variant.retail_price),
     images: variant.files.map((file) => ({
-        upload: file.preview_url,
-        contentType: file.mime_type,
-        fileName: file.filename,
-      })),
+      upload: file.preview_url,
+      contentType: file.mime_type,
+      fileName: file.filename,
+    })),
   };
 }
